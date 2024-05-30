@@ -1,0 +1,19 @@
+<div>
+  <h2 id="title-menu">InstaPics</h2>
+  <h2 id="title-menu2">IPics</h2>
+  <div class="menu_items">
+    <div class="item" *ngFor="let item of menuData">
+      <a class="cssbuttons-io" [routerLink]="item.link">
+        <span>
+          <p>{{ item.title }}</p>
+          <img [src]="item.svg" />
+        </span>
+      </a>
+    </div>
+    <div class="item">
+      <button class="cssbuttons-io" (click)="logOut()">
+        <span class="log-out">Salir</span>
+      </button>
+    </div>
+  </div>
+</div>

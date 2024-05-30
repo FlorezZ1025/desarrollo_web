@@ -1,0 +1,40 @@
+<div class="home-container">
+  <div id="menu">
+    <menu></menu>
+  </div>
+  <div id="feed"></div>
+
+  <div id="new-post-container">
+    <div class="post-create-container">
+      <h2>Crear Publicación</h2>
+      <form (submit)="onPost($event)">
+        <div class="form-group">
+          <input
+            type="text"
+            name="description"
+            placeholder="Escribe un texto..."
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            type="file"
+            (change)="onImagePicked($event)"
+            accept="image/*"
+            files="jpg,png,jpeg"
+            class="form-control"
+            required
+          />
+        </div>
+        @if (imagePreview) {
+
+        <div class="image-preview">
+          <img [src]="imagePreview" alt="Image Preview" />
+        </div>
+        }
+        <button type="submit" class="post-btn">Publicar</button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="home-container">
+  <div id="menu">
+    <menu></menu>
+  </div>
+  <div id="feed"></div>
+
+  <div id="new-post-container">
+    <div class="requests-container">
+      <h2>Solicitudes de Amistad</h2>
+      <ul class="request-list">
+        @for (request of friendRequests; track $index) {
+
+        <li class="request-item">
+          <span>{{ request.nickname }}</span>
+          <div class="actions">
+            @if (request.state === 'pending') {
+
+            <button
+              (click)="acceptRequest(request.id_follow)"
+              class="accept-btn"
+            >
+              Aceptar
+            </button>
+            <button
+              (click)="rejectRequest(request.id_follow)"
+              class="reject-btn"
+            >
+              Rechazar
+            </button>
+            }@else if (request.state === 'accepted') {
+            <span>Aceptado</span>
+            }@else {
+            <span>Rechazado</span>
+            }
+          </div>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</div>
